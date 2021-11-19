@@ -1,4 +1,17 @@
 {
+  "name": "seth_v1_discord",
+  "version": "1.0.0",
+  "description": "Maintenance bot for Discord",
+  "main": "./src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Melissa Gries <CadenEras>",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/CadenEras/Auto_Seth/issues"
+  },
+  "homepage": "https://github.com/CadenEras/Auto-Seth/blob/main/README.md",
   "dependencies": {
     "chalk": "^4.1.2",
     "discord.js": "^13.1.0",

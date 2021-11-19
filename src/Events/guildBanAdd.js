@@ -4,7 +4,7 @@ const Event = require('../Structures/event')
 const config = require('../Config/config.json')
 
 module.exports = new Event('guildBanAdd', async (client, ban) => {
-    dramaChannel = config.drama
+    const dramaChannel = config.drama
     const channelDev = client.channels.cache.find(
         (channel) => channel.id === dramaChannel
     )
