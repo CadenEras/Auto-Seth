@@ -5,7 +5,7 @@ const Event = require('../Structures/event')
 
 module.exports = new Event('messageCreate', (client, message) => {
     console.log(
-        `${Date.now} == > ${message.author} sent in #${message.channel.name} from ${message.guild.name} a message. Message content : "${message.content}"`
+        `${message.createdAt} == > ${message.author} sent in #${message.channel.name} from ${message.guild.name} a message. Message content : "${message.content}"`
     )
 
     //if (message.author.bot) return
