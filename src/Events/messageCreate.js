@@ -4,13 +4,15 @@ const Event = require('../Structures/event')
 //const talkedRecently = new Set()
 
 module.exports = new Event('messageCreate', (client, message) => {
-    console.log(
-        `${message.createdAt} == > ${message.author} sent in #${message.channel.name} from ${message.guild.name} a message. Message content : "${message.content}"`
-    )
 
     //if (message.author.bot) return
 
     if (!message.content.startsWith(client.prefix)) return
+
+    //We just want to log message with the prefix
+    console.log(
+        `${message.createdAt} == > ${message.author} sent in #${message.channel.name} from ${message.guild.name} a message. Message content : "${message.content}"`
+    )
 
     const args = message.content.slice(client.prefix.length).trim().split(/ +/)
     //const command = args.shift().toLowerCase();
