@@ -9,13 +9,11 @@ module.exports = new Event('messageDelete', async (client, message) => {
         (channel) => channel.id === dramaChannel
     )
 
-    console.log(
-        `[MEMBER EVENT]  User deleted a message  !`
-    )
+    console.log(`[MEMBER EVENT]  User deleted a message  !`)
 
     // Ignore direct messages
     if (!message.guild) return
-        const fetchedLogs = await message.guild.fetchAuditLogs({
+    const fetchedLogs = await message.guild.fetchAuditLogs({
         limit: 1,
         type: 'MESSAGE_DELETE',
     })

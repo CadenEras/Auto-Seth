@@ -1,20 +1,35 @@
 /** @format */
 
-const Event = require("../Structures/event")
-const config = require("../Config/config.json")
+const Discord = require('discord.js')
 
-module.exports = new Event("guildMemberAdd", (client, member) => {
-   const channelId = member.guild.systemChannelId
-   const welcomeChannel = member.guild.channels.cache.get(channelId)
-   const dramaChannel = config.drama
+const Event = require('../Structures/event')
+const config = require('../Config/config.json')
+
+module.exports = new Event('guildMemberAdd', (client, member) => {
+    const rules = config.rules
+    const channelId = config.welcome
+    const welcomeChannel = client.channels.cache.find(
+        (channel) => channel.id === channelId
+    )
+    const dramaChannel = config.drama
     const channelDev = client.channels.cache.find(
         (channel) => channel.id === dramaChannel
     )
 
-   console.log(`[MEMBER EVENT] New member in ${member.guild.name} !`)
+    console.log(`[MEMBER EVENT] New member in ${member.guild.name} !`)
 
-   const welcomeMessage = `Welcome <@${member.id}> on our cloud !~`
+    const welcomeMessage = new Discord.MessageEmbed()
+        .setTitle(`WELCOME  !!! <@${member.id}>`)
+        .setColor('#af4ae9')
+        .setDescription(
+            `Make sure to read the rules => <#${rules}>  !!\n`
+        )
+        .setThumbnail(`${member.user.displayAvatarURL({dynamic: true})}`)
+        .setTimestamp()
+        .setFooter(`Auto Seth's Welcome module`)
 
-   channelDev.send(`New Member : ${member.user.tag}\nJoined on : ${member.joinedAt}`)
-   welcomeChannel.send(welcomeMessage)
+    channelDev.send(
+        `New Member : ${member.user.tag}\nJoined on : ${member.joinedAt}`
+    )
+    welcomeChannel.send(welcomeMessage)
 })

@@ -80,7 +80,11 @@ module.exports = new Command({
             )
             .setTimestamp()
             .setFooter(`Auto Seth's info module`)
-
-        await message.channel.send({embeds: [infoEmbed]})
+        try {
+            await message.channel.send({embeds: [infoEmbed]})
+        } catch (error) {
+            console.log(error)
+        }
+        
     },
 })

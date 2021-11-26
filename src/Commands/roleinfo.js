@@ -11,7 +11,7 @@ module.exports = new Command({
     type: 'TEXT',
     guildOnly: true,
     cooldown: 5,
-    usage: 'z!roleinfo',
+    usage: 'as!roleinfo',
     permission: 'SEND_MESSAGES',
     async run(message, args, client) {
         try {
@@ -31,7 +31,6 @@ module.exports = new Command({
                     'https://i.imgur.com/nGWE3Bc.png'
                 )
                 .addField(`Id :`, `${role.id}`, true)
-                .addField(`Client :`, `${role.client}`, true)
                 .addField(`Created At :`, `${role.createdAt}`, true)
                 .addField(`Deleted :`, `${role.deleted}`, true)
                 .addField(`Hoist :`, `${role.hoist}`, true)

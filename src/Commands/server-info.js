@@ -9,7 +9,7 @@ module.exports = new Command({
     description: 'Get information of the current server !',
     guildOnly: true,
     cooldown: 5,
-    usage: 'z!server-info',
+    usage: 'as!server-info',
     permission: 'SEND_MESSAGES',
     async run(message, args, client) {
         try {

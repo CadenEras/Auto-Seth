@@ -26,7 +26,7 @@ module.exports = new Event('guildBanAdd', async (client, ban) => {
 
     // Now grab the user object of the person who banned the member
     // Also grab the target of this action to double-check things
-    const {executor, target} = banLog
+    const {executor, target, reason} = banLog
 
     // Update the output with a bit more information
     // Also run a check to make sure that the log returned was for the same banned member
@@ -34,11 +34,11 @@ module.exports = new Event('guildBanAdd', async (client, ban) => {
     try {
         if (target.id === ban.user.id) {
             channelDev.send(
-                `${ban.user.tag} got hit with the hammer of justice in the guild ${ban.guild.name}, wielded by the mighty ${executor.tag}`
+                `${ban.user.tag} got hit with the hammer of justice, wielded by the mighty ${executor.tag} for : ${reason}`
             )
         } else {
             channelDev.send(
-                `${ban.user.tag} got hit with the hammer of justice in the guild ${ban.guild.name}, audit log fetch was inconclusive.`
+                `${ban.user.tag} got hit with the hammer of justice, but audit log fetch was inconclusive.`
             )
         }
     } catch (error) {
