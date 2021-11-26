@@ -38,7 +38,7 @@ module.exports = new Command({
 
             await message.channel.send({embeds: [embed1]})
         } catch (error) {
-            console.log(error)
+            console.log(chalk.bgRed(error))
             message.channel.send(
                 `Something went wrong... Stack error log : ${error}`
             )

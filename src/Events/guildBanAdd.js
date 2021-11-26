@@ -2,6 +2,7 @@
 
 const Event = require('../Structures/event')
 const config = require('../Config/config.json')
+const chalk = require('chalk')
 
 module.exports = new Event('guildBanAdd', async (client, ban) => {
     const dramaChannel = config.drama
@@ -9,7 +10,7 @@ module.exports = new Event('guildBanAdd', async (client, ban) => {
         (channel) => channel.id === dramaChannel
     )
 
-    //console.log(`[MEMBER EVENT]  Member Ban in ${member.guild.name} !`)
+    console.log(chalk.cyan(`[MEMBER EVENT]  Member Ban in ${member.guild.name} !`))
 
     const fetchedLogs = await ban.guild.fetchAuditLogs({
         limit: 1,

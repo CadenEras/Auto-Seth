@@ -83,7 +83,7 @@ module.exports = new Command({
         try {
             await message.channel.send({embeds: [infoEmbed]})
         } catch (error) {
-            console.log(error)
+            console.log(chalk.bgRed(error))
         }
         
     },

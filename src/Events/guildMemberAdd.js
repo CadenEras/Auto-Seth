@@ -4,6 +4,7 @@ const Discord = require('discord.js')
 
 const Event = require('../Structures/event')
 const config = require('../Config/config.json')
+const chalk = require('chalk')
 
 module.exports = new Event('guildMemberAdd', (client, member) => {
     const rules = config.rules
@@ -16,7 +17,7 @@ module.exports = new Event('guildMemberAdd', (client, member) => {
         (channel) => channel.id === dramaChannel
     )
 
-    console.log(`[MEMBER EVENT] New member in ${member.guild.name} !`)
+    console.log(chalk.cyan(`[MEMBER EVENT] New member in ${member.guild.name} !`))
 
     const welcomeMessage = new Discord.MessageEmbed()
         .setTitle(`WELCOME  !!! <@${member.id}>`)

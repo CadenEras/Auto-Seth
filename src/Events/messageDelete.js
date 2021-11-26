@@ -43,6 +43,6 @@ module.exports = new Event('messageDelete', async (client, message) => {
             )
         }
     } catch (error) {
-        console.log(error)
+        console.log(chalk.bgRed(error))
     }
 })

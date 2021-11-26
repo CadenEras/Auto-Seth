@@ -5,7 +5,7 @@ const Event = require('../Structures/event')
 
 module.exports = new Event('messageCreate', (client, message) => {
     console.log(
-        `${message.author} sent in #${message.channel.name} from ${message.guild.name} a message. Message content : "${message.content}"`
+        `${Date.now} == > ${message.author} sent in #${message.channel.name} from ${message.guild.name} a message. Message content : "${message.content}"`
     )
 
     //if (message.author.bot) return
@@ -31,7 +31,7 @@ module.exports = new Event('messageCreate', (client, message) => {
         command.run(message, args, client)
     } catch (error) {
         //handle error
-        console.error(error)
+        console.log(chalk.bgRed(error))
         return message.reply(
             `Something went wrong.... Stack error log : ${error}`
         )
