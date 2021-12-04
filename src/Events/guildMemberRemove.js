@@ -10,7 +10,9 @@ module.exports = new Event('guildMemberRemove', async (client, member) => {
         (channel) => channel.id === dramaChannel
     )
 
-    console.log(chalk.cyan(`[MEMBER EVENT]  User left in ${member.user.guild.name} !`))
+    console.log(
+        chalk.cyan(`[MEMBER EVENT]  User left in ${member.user.guild.name} !`)
+    )
 
     const fetchedLogs = await member.guild.fetchAuditLogs({
         limit: 1,

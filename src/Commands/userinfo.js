@@ -85,6 +85,5 @@ module.exports = new Command({
         } catch (error) {
             console.log(chalk.bgRed(error))
         }
-        
     },
 })

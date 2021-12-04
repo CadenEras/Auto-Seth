@@ -4,7 +4,6 @@ const Event = require('../Structures/event')
 //const talkedRecently = new Set()
 
 module.exports = new Event('messageCreate', (client, message) => {
-
     //if (message.author.bot) return
 
     if (!message.content.startsWith(client.prefix)) return

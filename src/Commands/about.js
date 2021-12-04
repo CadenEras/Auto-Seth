@@ -31,7 +31,11 @@ module.exports = new Command({
                     `https://discord.gg/W6epQx8YHR`,
                     true
                 )
-                .addField(`Repository (GitHub)`, `https://github.com/CadenEras/Caden_San_V3_Discord`, true)
+                .addField(
+                    `Repository (GitHub)`,
+                    `https://github.com/CadenEras/Caden_San_V3_Discord`,
+                    true
+                )
                 //.addField(`Invite`, `No invite link.`, true)
                 .setTimestamp()
                 .setFooter('Made By CadenEras#2020, with love <3')

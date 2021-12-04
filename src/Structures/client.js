@@ -9,7 +9,16 @@ const fs = require('fs')
 
 class Client extends Discord.Client {
     constructor() {
-        super({intents})
+        super({
+            intents,
+            partials: [
+                'MESSAGE',
+                'CHANNEL',
+                'GUILD_MEMBER',
+                'REACTION',
+                'USER',
+            ],
+        })
 
         /**
          * @type {Discord.Collection<string, Command>}

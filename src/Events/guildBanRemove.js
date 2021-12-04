@@ -10,7 +10,9 @@ module.exports = new Event('guildBanRemove', async (client, ban) => {
         (channel) => channel.id === dramaChannel
     )
 
-    console.log(chalk.cyan(`[MEMBER EVENT]  Member Ban in ${member.guild.name} !`))
+    console.log(
+        chalk.cyan(`[MEMBER EVENT]  Member Ban in ${member.guild.name} !`)
+    )
 
     const fetchedLogs = await ban.guild.fetchAuditLogs({
         limit: 1,

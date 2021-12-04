@@ -2,6 +2,7 @@
 
 const Event = require('../Structures/event')
 const config = require('../Config/config.json')
+const chalk = require('chalk')
 
 module.exports = new Event('messageDelete', async (client, message) => {
     const dramaChannel = config.drama
@@ -32,17 +33,42 @@ module.exports = new Event('messageDelete', async (client, message) => {
 
     // Update the output with a bit more information
     // Also run a check to make sure that the log returned was for the same author's message
-    try {
-        if (target.id === message.author.id) {
-            channelDev.send(
-                `A message by ${message.author.tag} was deleted by ${executor.tag}. Reason ${reason}`
-            )
-        } else {
-            channelDev.send(
-                `A message by ${message.author.tag} was deleted, but we don't know by who.`
-            )
+
+    if (message.partial) {
+        message
+            .fetch()
+            .then((fullMessage) => {
+                console.log(
+                    chalk.green('Message successfully fetched and restored.')
+                )
+                if (target.id === message.author.id) {
+                    channelDev.send(
+                        `A message by ${message.author.tag} was deleted by ${executor.tag}. Reason ${reason}.\nMessage content : ${fullMessage.content}`
+                    )
+                } else {
+                    channelDev.send(
+                        `A message by ${message.author.tag} was deleted, but we don't know by who and for what...`
+                    )
+                }
+            })
+            .catch((error) => {
+                console.log(chalk.bgRed('Message cannot be fetched : ', error))
+            })
+    } else {
+        const npMessage = message.content
+
+        try {
+            if (target.id === message.author.id) {
+                channelDev.send(
+                    `A message by ${message.author.tag} was deleted by ${executor.tag}. Reason ${reason}.\nMessage content : ${npMessage}`
+                )
+            } else {
+                channelDev.send(
+                    `A message by ${message.author.tag} was deleted, but we don't know by who and for what...`
+                )
+            }
+        } catch (error) {
+            console.log(chalk.bgRed(error))
         }
-    } catch (error) {
-        console.log(chalk.bgRed(error))
     }
 })
