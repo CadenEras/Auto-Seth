@@ -2,6 +2,7 @@
 
 const chalk = require('chalk')
 const Command = require('../Structures/command')
+const config = require('../Config/config.json')
 
 module.exports = new Command({
     name: 'clear',
