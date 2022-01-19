@@ -32,5 +32,9 @@ module.exports = new Event('guildMemberAdd', (client, member) => {
     channelDev.send(
         `New Member : ${member.user.tag}\nJoined on : ${member.joinedAt}`
     )
+<<<<<<< HEAD
     welcomeChannel.send({embeds: welcomeMessage})
+=======
+    welcomeChannel.send({embed: [welcomeMessage]})
+>>>>>>> d14ac629887f7639c7dba0480f7a2644a267a010
 })

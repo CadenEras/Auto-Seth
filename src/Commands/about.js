@@ -18,7 +18,7 @@ module.exports = new Command({
                 .setTitle('Auto Seth')
                 .setColor('#af4ae9')
                 .setDescription(
-                    "Hi ! I'm Auto Seth, a bot of CadenEras made for logging events !"
+                    "Hi ! I'm Auto Seth, CadenEras's famous Assistant !"
                 )
                 .setThumbnail('https://i.imgur.com/QwmpLS8.png')
                 .setAuthor('Auto Seth', 'https://i.imgur.com/QwmpLS8.png')
