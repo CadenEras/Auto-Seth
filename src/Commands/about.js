@@ -33,7 +33,7 @@ module.exports = new Command({
                 )
                 .addField(
                     `Repository (GitHub)`,
-                    `https://github.com/CadenEras/Caden_San_V3_Discord`,
+                    `https://github.com/CadenEras/Auto-Seth`,
                     true
                 )
                 //.addField(`Invite`, `No invite link.`, true)
