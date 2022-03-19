@@ -2,7 +2,7 @@
 
 /*
  *
- * Auto Seth, autonomous assistant for CadenEras's other bot.
+ * Auto Seth, bot that can give information in server.
  * Created on july 2021
  * by CadenEras#2020(795326819346808832)(Melissa Gries)
  *
