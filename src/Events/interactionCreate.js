@@ -1,33 +1,24 @@
 /**@format */
 
-const Event = require('../Structures/event')
+const { Events } = require('discord.js');
 
-module.exports = new Event('interactionCreate', (client, interaction) => {
-    if (interaction.user.bot || !interaction.isCommand() || !interaction.guild)
-        return
+module.exports = {
+    name: Events.InteractionCreate,
+    async execute(interaction) {
+        if (!interaction.isChatInputCommand()) return;
 
-    const args = [
-        interaction.commandName,
-        ...client.commands
-            .find(
-                (command) =>
-                    command.name.toLowerCase() == interaction.commandName
-            )
-            .slashCommandOptions.map(
-                (v) => `${interaction.options.get(v.name).value}`
-            ),
-    ]
+        const command = interaction.client.commands.get(interaction.commandName);
 
-    const command = client.commands.find(
-        (command) => command.name.toLowerCase() == interaction.commandName
-    )
+        if (!command) {
+            console.error(`No command matching ${interaction.commandName} was found.`);
+            return;
+        }
 
-    if (!command) return interaction.reply('Invalid command.')
-
-    const permission = interaction.member.permissions.has(command.permission)
-
-    if (!permission)
-        return interaction.reply('Permission override detected !!!')
-
-    command.run(interaction, args, client)
-})
+        try {
+            await command.execute(interaction);
+        } catch (error) {
+            console.error(`Error executing ${interaction.commandName}`);
+            console.error(error);
+        }
+    },
+};

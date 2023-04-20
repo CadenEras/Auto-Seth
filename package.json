@@ -1,9 +1,11 @@
 {
   "name": "seth_v1_discord",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Maintenance bot for Discord",
   "main": "./src/index.js",
   "scripts": {
+    "dev": "node ./src/index.js",
+    "deploy": "node ./src/deploy-commands.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Melissa Gries <CadenEras>",
@@ -13,16 +15,15 @@
   },
   "homepage": "https://github.com/CadenEras/Auto-Seth/blob/main/README.md",
   "dependencies": {
-    "@sentry/node": "^6.16.1",
-    "@sentry/tracing": "^6.16.1",
-    "chalk": "^4.1.2",
-    "discord.js": "^13.1.0",
-    "enmap": "^5.8.7",
+    "@sentry/node": "^7.12.1",
+    "@sentry/tracing": "^7.49.0",
+    "discord.js": "^14.9.0",
     "moment": "^2.29.1"
   },
   "devDependencies": {
-    "dotenv": "^10.0.0",
-    "eslint": "^7.32.0",
+    "dotenv": "^16.0.2",
+    "eslint": "^8.23.0",
+    "eslint-config-prettier": "^8.8.0",
     "prettier": "^2.4.1"
   }
 }
